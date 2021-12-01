@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../pokeList.js"></script>
+    <script type="text/javascript" src="correctList.js"></script>
+    <script>
+        var currentPoke;
+        var imgSrc;
+        var currentPokeNum = 0;
+        function selectNextPoke() {
+            if (currentPokeNum != pokemonList.length) {
+                currentPoke = pokemonList[currentPokeNum];
+                currentPokeNum++;
+                if (currentPoke.customURL) {
+                    imgSrc = currentPoke.customURL;
+                }
+                else if (currentPoke.imgName) {
+                    imgSrc = "https://img.pokemondb.net/artwork/large/" + currentPoke.imgName.toLowerCase() + ".jpg";
+                } else {
+                    imgSrc = "https://img.pokemondb.net/artwork/large/" + currentPoke.name.toLowerCase() + ".jpg";
+                }
+                var img = document.createElement("img");
+                img.src = imgSrc;
+                document.getElementById("pokeImg").appendChild(img);
+                setTimeout(selectNextPoke, 50);
+            }
+        }
+
+        function findDuplicates() {
+            for (var x = 0; x < 251; x++) {
+                var found = false;
+                for (var i = 0; i < correctList.length; i++) {
+                    if (correctList[i] == pokemonList[x].name) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    found = false;
+                    console.log(pokemonList[x]);
+                }
+            }
+            console.log("done");
+        }
+
+        $(document).ready(function () {
+            //findDuplicates();
+            selectNextPoke();
+        });
+    </script>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pokeImg">
+    </div>
+</body>

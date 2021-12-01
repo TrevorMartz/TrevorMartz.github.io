@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { PokeQuiz } from './pokequiz/Pokequiz';
+import { Homepage } from './homepage/Homepage';
+import { Navigation } from './navigation/Navigation';
+import styled from 'styled-components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <BrowserRouter>
+            <StyledApp>
+                <Navigation />
+                <div>
+                    <Routes>
+                        <Route path="/" element={<Homepage />} />
+                        <Route path="pokequiz" element={<PokeQuiz />} />
+                    </Routes>
+                </div>
+            </StyledApp>
+        </BrowserRouter>
+    );
+};
+
+const StyledApp = styled.body`
+    width: 1440px;
+    margin: 0 auto;
+`;
 
 export default App;

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="pokeList.js"></script>
+    <script type="text/javascript" src="pokequiz.js"></script>
+    <script>
+        $(document).ready(function () {
+            document.getElementById("minNum").value = minPokeNumber;
+            document.getElementById("maxNum").value = maxPokeNumber;
+            createOptionList();
+            nextPoke();
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="horizontalSpaced">
+        <div class="imageBubble">
+            <img class="pokeImage" id="pokeImg">
+            <div class="nameBox">
+                <input placeholder="Enter Pokemon name" id="pokeName" type="text" onKeyUp="typeEvent()">
+                <button class="skipButton" onclick="skip()">Skip</button>
+            </div>
+        </div>
+        <div class="imageBubble">
+            <img class="pokeImage" id="previousImg">
+            <p id="previousName" class="nameBox"></p>
+        </div>
+    </div>
+    <div class="infoBox">
+        <div class="settings">
+            <div>
+                Min Num
+                <input id="minNum" type="number" onKeyUp="rangeChange()">
+            </div>
+            <div>
+                Max Num
+                <input id="maxNum" type="number" onKeyUp="rangeChange()">
+            </div>
+        </div>
+        <div class="info">
+            <div id="pokemonRemaining">Pokemon Remaining:</div>
+            <div id="pokemonSkipped">Pokemon Skipped:</div>
+        </div>
+    </div>
+    <div class="correct">
+        <div id="correctHeader">Correct List 0</div>
+        <div id="correctList"></div>
+    </div>
+</body>
