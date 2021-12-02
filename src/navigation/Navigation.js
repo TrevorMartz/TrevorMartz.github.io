@@ -5,7 +5,8 @@ export const Navigation = () => {
     return (
         <StyledNavigation>
             <Link to="/">Home</Link>
-            <Link to="/pokequiz">Pokequiz</Link>
+            <Link to="/pokequiz">Poke Quiz</Link>
+            <Link to="/poketypequiz">Poke Type Quiz</Link>
         </StyledNavigation>
     );
 };
