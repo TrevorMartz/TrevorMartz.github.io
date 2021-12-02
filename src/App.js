@@ -20,8 +20,8 @@ const App = () => {
     );
 };
 
-const StyledApp = styled.body`
-    width: 1440px;
+const StyledApp = styled.div`
+    max-width: 1440px;
     margin: 0 auto;
 `;
 

@@ -20,3 +20,4 @@ navigation
 theming
 translation
 show off things? examples?
+favicon
