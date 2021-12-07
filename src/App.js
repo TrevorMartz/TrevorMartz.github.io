@@ -10,13 +10,13 @@ const App = () => {
         <BrowserRouter>
             <StyledApp>
                 <Navigation />
-                <div>
+                <StyledContent>
                     <Routes>
                         <Route path="/" element={<Homepage />} />
                         <Route path="pokequiz" element={<PokeQuiz />} />
                         <Route path="poketypequiz" element={<PokeTypeQuiz />} />
                     </Routes>
-                </div>
+                </StyledContent>
             </StyledApp>
         </BrowserRouter>
     );
@@ -24,7 +24,15 @@ const App = () => {
 
 const StyledApp = styled.div`
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 0 10%;
+
+    @media (max-width: 720px) {
+        margin: 0 5%;
+    }
+`;
+
+const StyledContent = styled.div`
+    margin-top: 16px;
 `;
 
 export default App;
