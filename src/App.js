@@ -1,5 +1,6 @@
 import { PokeQuiz } from './pokequiz/Pokequiz';
 import { PokeTypeQuiz } from './poketypequiz/PokeTypeQuiz';
+import { Names } from './names/Names';
 import { Homepage } from './homepage/Homepage';
 import { Navigation } from './navigation/Navigation';
 import styled from 'styled-components';
@@ -15,6 +16,7 @@ const App = () => {
                         <Route path="/" element={<Homepage />} />
                         <Route path="pokequiz" element={<PokeQuiz />} />
                         <Route path="poketypequiz" element={<PokeTypeQuiz />} />
+                        <Route path="names" element={<Names />} />
                     </Routes>
                 </StyledContent>
             </StyledApp>
