@@ -25,9 +25,10 @@ theming
 translation
 show off things? examples?
 favicon
+site doesn't load direct url's, because github is looking for the index.html file instead of using react router.
 
 #### Components to make
 
 -   select
 -   switch
--   checkbox?
+-   checkbox

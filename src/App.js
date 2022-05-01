@@ -4,11 +4,11 @@ import { Names } from './names/Names';
 import { Homepage } from './homepage/Homepage';
 import { Navigation } from './navigation/Navigation';
 import styled from 'styled-components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <StyledApp>
                 <Navigation />
                 <StyledContent>
@@ -20,7 +20,7 @@ const App = () => {
                     </Routes>
                 </StyledContent>
             </StyledApp>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 
