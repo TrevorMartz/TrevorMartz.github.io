@@ -18,13 +18,12 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 -   unit tests
 -   lint rules
 -   typescript
--   storybook
--   styles???
--   navigation
+-   storybook?
+-   more styles
+-   mobile navigation
 -   theming -- added but need to make sure it is used everywhere
 -   translation?
--   show off things? examples?
--   favicon
+-   dark mode
 
 #### Components to make
 

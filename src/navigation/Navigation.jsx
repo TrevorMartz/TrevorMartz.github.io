@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from './NavLink';
+import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
     return (
@@ -9,6 +10,11 @@ export const Navigation = () => {
                 <NavLink to="/pokequiz" title="Poke Quiz" />
                 <NavLink to="/poketypequiz" title="Poke Type Quiz" />
                 <NavLink to="/names" title="Name reader" />
+                <StyledGithbLink>
+                    <a href="https://github.com/TrevorMartz/TrevorMartz.github.io" target="_blank">
+                        <StyledGithubIcon src="/github.ico" />
+                    </a>
+                </StyledGithbLink>
             </StyledLinks>
         </StyledNavigation>
     );
@@ -26,4 +32,14 @@ const StyledLinks = styled.div`
     display: flex;
     align-items: center;
     height: 30px;
+`;
+
+const StyledGithbLink = styled.div`
+    position: absolute;
+    right: 32px;
+    top: 4px;
+`;
+
+const StyledGithubIcon = styled.img`
+    height: 40px;
 `;
