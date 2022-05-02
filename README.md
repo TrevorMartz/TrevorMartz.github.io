@@ -15,17 +15,16 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### TODO
 
-unit tests
-lint rules
-typescript
-storybook
-styles???
-navigation
-theming
-translation
-show off things? examples?
-favicon
-site doesn't load direct url's, because github is looking for the index.html file instead of using react router.
+-   unit tests
+-   lint rules
+-   typescript
+-   storybook
+-   styles???
+-   navigation
+-   theming -- added but need to make sure it is used everywhere
+-   translation?
+-   show off things? examples?
+-   favicon
 
 #### Components to make
 
