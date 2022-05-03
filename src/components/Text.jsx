@@ -1,10 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 //designed via https://material.io/design/typography/the-type-system.html#type-scale
 
 const StyledBasedText = styled.span`
     font-family: roboto;
-    color: ${({ theme }) => theme.colors.neutral900};
+    color: ${(props) => {
+        if (props.lightest) {
+            return props.theme.colors.neutral50;
+        } else if (props.lighter) {
+            return props.theme.colors.neutral200;
+        } else if (props.light) {
+            return props.theme.colors.neutral400;
+        } else if (props.dark) {
+            return props.theme.colors.neutral600;
+        } else if (props.darker) {
+            return props.theme.colors.neutral800;
+        } else {
+            //darkest, but also default
+            return props.theme.colors.neutral900;
+        }
+    }};
 `;
 
 export const H1 = styled(StyledBasedText).attrs(() => ({
@@ -53,6 +68,11 @@ export const H6 = styled(StyledBasedText).attrs(() => ({
     margin: 0;
     font-size: 20px;
     letter-spacing: 0.15px;
+`;
+
+export const ButtonText = styled(StyledBasedText)`
+    font-size: 20px;
+    letter-spacing: 0.5px;
 `;
 
 export const PrimaryText = styled(StyledBasedText)`

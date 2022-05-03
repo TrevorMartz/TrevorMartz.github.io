@@ -1,25 +1,31 @@
 import styled from 'styled-components';
+import { ButtonText } from './Text';
 
 export const Button = ({ label, onClick }) => {
-    return <StyledButton onClick={onClick}>{label}</StyledButton>;
+    return (
+        <StyledButton onClick={onClick}>
+            <ButtonText lightest>{label}</ButtonText>
+        </StyledButton>
+    );
 };
 
 const StyledButton = styled.button`
-    height: 32px;
-    padding: 4px 8px;
-    background-color: #155d84;
-    color: white;
-    border: 1px solid #155d84;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background-color: ${({ theme }) => theme.colors.primary800};
+    border: transparent;
+    border-radius: 4px;
     outline: none;
-    font-size: 20px;
+    box-shadow: 0px 0px 3px 1px ${({ theme }) => theme.colors.shadow700};
+    transition: 0.5s 0s ease;
 
-    :hover {
-        background-color: #026fa1;
-        border: 1px solid #026fa1;
-        cursor: pointer;
-    }
-
+    :hover,
     :active {
-        background-color: #026fa1;
+        background-color: ${({ theme }) => theme.colors.primary700};
+        box-shadow: 0px 0px 5px 3px ${({ theme }) => theme.colors.shadow700};
+        cursor: pointer;
     }
 `;

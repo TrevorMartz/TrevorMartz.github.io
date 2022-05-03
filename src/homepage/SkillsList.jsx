@@ -21,7 +21,8 @@ export const SkillsList = ({ title, skills }) => {
 };
 
 const StyledSkillsList = styled.div`
-    border: 2px solid ${({ theme }) => theme.colors.primary700};
+    border-radius: 10px;
+    border: 1px solid ${({ theme }) => theme.colors.neultral200};
     height: 100%;
 `;
 

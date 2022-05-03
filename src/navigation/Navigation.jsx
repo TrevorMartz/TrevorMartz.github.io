@@ -7,6 +7,7 @@ export const Navigation = () => {
         <StyledNavigation>
             <StyledLinks>
                 <NavLink to="/" title="Home" />
+                <NavLink to="/components" title="Components" />
                 <NavLink to="/pokequiz" title="Poke Quiz" />
                 <NavLink to="/poketypequiz" title="Poke Type Quiz" />
                 <NavLink to="/names" title="Name reader" />
@@ -21,9 +22,10 @@ export const Navigation = () => {
 };
 
 const StyledNavigation = styled.div`
-    background-color: ${({ theme }) => theme.colors.neutral300};
-    padding: 8px 32px 8px;
+    background-color: ${({ theme }) => theme.colors.neutral100};
+    padding: 8px 32px 32px;
     height: 30px;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.neutral300};
 `;
 
 const StyledLinks = styled.div`
@@ -31,7 +33,7 @@ const StyledLinks = styled.div`
     margin: 0 auto;
     display: flex;
     align-items: center;
-    height: 30px;
+    height: 40px;
 `;
 
 const StyledGithbLink = styled.div`
@@ -41,5 +43,5 @@ const StyledGithbLink = styled.div`
 `;
 
 const StyledGithubIcon = styled.img`
-    height: 40px;
+    height: 55px;
 `;

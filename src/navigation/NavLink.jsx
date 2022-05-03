@@ -18,11 +18,11 @@ export const NavLink = ({ to, title }) => {
         setIsHovered(false);
     }, []);
     return (
-        <StyledNavLink style={hoverStyle} onMouseEnter={trigger} onMouseLeave={end}>
-            <StykedLink to={to}>
+        <StykedLink to={to}>
+            <StyledNavLink style={hoverStyle} onMouseEnter={trigger} onMouseLeave={end}>
                 <H5>{title}</H5>
-            </StykedLink>
-        </StyledNavLink>
+            </StyledNavLink>
+        </StykedLink>
     );
 };
 

@@ -1,6 +1,7 @@
 import { PokeQuiz } from './pokequiz/Pokequiz';
 import { PokeTypeQuiz } from './poketypequiz/PokeTypeQuiz';
 import { Names } from './names/Names';
+import { Components } from './components/Components';
 import { Homepage } from './homepage/Homepage';
 import { Navigation } from './navigation/Navigation';
 import styled, { ThemeProvider } from 'styled-components';
@@ -19,6 +20,7 @@ export const App = () => {
                         <StyledContent>
                             <Routes>
                                 <Route path="/" element={<Homepage />} />
+                                <Route path="components" element={<Components />} />
                                 <Route path="pokequiz" element={<PokeQuiz />} />
                                 <Route path="poketypequiz" element={<PokeTypeQuiz />} />
                                 <Route path="names" element={<Names />} />
@@ -33,7 +35,7 @@ export const App = () => {
 
 //This creates a minimum margin so the page never touches the sides of the screen
 const StyledPage = styled.div`
-    padding: 0 32px;
+    padding: 32px 32px 0;
     height: 100vh;
     background: ${({ theme }) => theme.colors.neutral100};
 `;

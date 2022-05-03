@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import TrevorFace from './TrevorFace.jpg';
+import TrevorResume from './TrevorMartzResume.pdf';
 import { H1, H2, H3, H4, H5, H6, PrimaryText, SecondaryText, CaptionText } from '../components';
 import { SkillsList } from './SkillsList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { ButtonLink } from '../components';
 
 /* 
     This page is the homepage with all the useful information most people might be looking for.
@@ -15,20 +19,27 @@ import { SkillsList } from './SkillsList';
 export const Homepage = () => {
     return (
         <StyledHomepage>
-            <StyledTitle>Hello and welcome! My name is Trevor Martz. This is me.</StyledTitle>
+            <StyledTitle>Hello and welcome! My name is Trevor Martz.</StyledTitle>
+            <StyledResume>
+                <StyledResumeText>Here is a download of my resume</StyledResumeText>
+                <ButtonLink label="Download Pdf" href={TrevorResume} target="_blank" rel="noreferrer" />
+            </StyledResume>
+            <StyledArrow>
+                <H4>That is me</H4> <StyledArrowIcon icon={faArrowRight} />
+            </StyledArrow>
             <StyledFaceWrapper>
                 <StyledFace src={TrevorFace} alt="this is me" />
             </StyledFaceWrapper>
             <StyledIntro>
-                I am a senior software engineer, primarily for front end/ui work. I graduated from Neumont University
-                with a degree in Computer Science in 2016, and I've been doing development professionally since. I am an
-                American living in New Zealand, and am open to local NZ work or remote US work.
+                <PrimaryText>
+                    I am a senior software engineer, primarily for front end/ui work. I graduated from Neumont
+                    University with a degree in Computer Science in 2016, and I've been doing development professionally
+                    since. I am an American living in New Zealand, and am open to local NZ work or remote US work.
+                </PrimaryText>
             </StyledIntro>
-            <>Here is a download of my resume in pdf form /* TODO */</>
             <StyledSkills>
                 <SkillsList
-                    title="
-                    Core Skills"
+                    title="Core Skills"
                     skills={[
                         'Front End/UX Development',
                         'Component Design',
@@ -42,9 +53,9 @@ export const Homepage = () => {
                     ]}
                 />
             </StyledSkills>
-            <StyledFrontEndTechs>
+            <StyledTechs>
                 <SkillsList
-                    title="Front End Core Techs"
+                    title="Core Techs"
                     skills={[
                         'Javascript',
                         'React',
@@ -58,16 +69,13 @@ export const Homepage = () => {
                         'Npm & Yarn',
                         'CSS3 & Styled Components',
                         'HTML5',
+                        'C#',
+                        'SQL & Mysql',
+                        'Golang',
+                        'Java',
                     ]}
                 />
-            </StyledFrontEndTechs>
-            <StyledBackendTechs>
-                <SkillsList
-                    title="
-                    Backend Core Techs"
-                    skills={['C#', 'SQL & Mysql', 'Golang', 'Java']}
-                />
-            </StyledBackendTechs>
+            </StyledTechs>
             <StyledTools>
                 <SkillsList
                     title="Tools"
@@ -90,23 +98,62 @@ export const Homepage = () => {
 const StyledHomepage = styled.div`
     display: grid;
     grid-template:
-        'title title title title'
-        '. face face .'
-        'intro intro intro intro'
-        'skills frontend backend tools';
-    grid-column-gap: 8px;
+        'title title title'
+        'resume arrow face'
+        'intro intro intro'
+        'skills techs tools';
+    grid-column-gap: 16px;
+    grid-row-gap: 32px;
 `;
 
 const StyledTitle = styled(H3)`
     grid-area: title;
 `;
 
+const StyledResume = styled.div`
+    grid-area: resume;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const StyledResumeText = styled(PrimaryText)`
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 0 32px;
+`;
+
+const StyledArrow = styled.div`
+    grid-area: arrow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const StyledArrowIcon = styled(FontAwesomeIcon)`
+    width: 100px;
+    height: 100px;
+`;
+
 const StyledFaceWrapper = styled.div`
     grid-area: face;
+    :before {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 200px;
+        box-shadow: inset 0px 0px 75px 25px ${({ theme }) => theme.colors.neutral700};
+    }
 `;
 
 const StyledFace = styled.img`
-    width: 100px;
+    height: 400px;
+    width: 400px;
+    border-radius: 200px;
+    ::after {
+    }
 `;
 
 const StyledIntro = styled(PrimaryText)`
@@ -116,12 +163,11 @@ const StyledIntro = styled(PrimaryText)`
 const StyledSkills = styled.div`
     grid-area: skills;
 `;
-const StyledFrontEndTechs = styled.div`
-    grid-area: frontend;
+
+const StyledTechs = styled.div`
+    grid-area: techs;
 `;
-const StyledBackendTechs = styled.div`
-    grid-area: backend;
-`;
+
 const StyledTools = styled.div`
     grid-area: tools;
 `;
