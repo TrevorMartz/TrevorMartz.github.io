@@ -5,6 +5,7 @@ import { maleNames } from './maleNames';
 import { useEffect, useMemo, useState } from 'react';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import { PrimaryText } from '../components';
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -85,7 +86,10 @@ export const Names = () => {
 
     return (
         <StyledNames>
-            <div>This is a tool to read random names, meant to help you find the right name for your child.</div>
+            <PrimaryText>
+                This page needs more style care. This is a tool to read random names, meant to help you find the right
+                name for your child.
+            </PrimaryText>
             <div>
                 <select onChange={(event) => setSelectedVoice(event.target.value)} value={selectedVoice}>
                     {voiceOptions}
@@ -125,7 +129,7 @@ export const Names = () => {
 const StyledNames = styled.div`
     display: flex;
     flex-direction: column;
-    * {
+    > * {
         margin-top: 16px;
     }
 `;
@@ -143,7 +147,7 @@ const StyledCurrentNameWrapper = styled.div`
 `;
 
 const StyledDivider = styled.div`
-    margin: 16px 8px 0;
+    margin: 0 8px 0;
 `;
 
 const StyledCurrentName = styled.div`

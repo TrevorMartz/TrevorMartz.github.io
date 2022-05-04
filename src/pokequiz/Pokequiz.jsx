@@ -3,6 +3,7 @@ import { fullPokemonList } from './fullPokemonList';
 import { useEffect, useState, useCallback } from 'react';
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
+import { PrimaryText } from '../components';
 
 /* 
     This app is a fun little quiz to let you see how well you know(and spell) various pokemon names.
@@ -128,6 +129,11 @@ export const PokeQuiz = () => {
 
     return (
         <StyledPokequiz>
+            <PrimaryText>
+                Yea this page needs a bit of a style update, but it is a functional game. You need to enter the name of
+                the pokemon displayed on the left, and see how many of the pokemon in the pokedex you can name(and
+                spell) right!
+            </PrimaryText>
             <StyledQuizTop>
                 <StyledPokeBox>
                     <StyledImage src={getImageSrc(currentPoke)} />
@@ -192,7 +198,7 @@ const StyledAnwserInput = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 90px;
 `;
 
 const StyledImage = styled.img`
