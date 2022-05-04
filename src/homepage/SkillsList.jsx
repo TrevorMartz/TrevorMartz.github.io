@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { H1, H5, PrimaryText, SecondaryText } from '../components';
-import { useSpring, animated } from 'react-spring';
 import { SkillsListItem } from './SkillsListItem';
 
 const mapSkills = (skill) => {
@@ -8,8 +7,6 @@ const mapSkills = (skill) => {
 };
 
 export const SkillsList = ({ title, skills }) => {
-    const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
-
     return (
         <StyledSkillsList>
             <StyledTitle>
@@ -21,17 +18,22 @@ export const SkillsList = ({ title, skills }) => {
 };
 
 const StyledSkillsList = styled.div`
-    border-radius: 10px;
-    border: 1px solid ${({ theme }) => theme.colors.neultral200};
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid ${({ theme }) => theme.colors.neutral400};
     height: 100%;
+    box-shadow: 0px 0px 5px 1px ${({ theme }) => theme.colors.shadow400};
 `;
 
 const StyledTitle = styled.div`
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 64px;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.complementary400};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.primary200};
 `;
 
 const StyledList = styled.div`
-    margin-top: 8px;
+    margin: 16px auto 0;
+    max-width: fit-content;
 `;

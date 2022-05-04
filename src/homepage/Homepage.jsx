@@ -20,9 +20,16 @@ export const Homepage = () => {
     return (
         <StyledHomepage>
             <StyledTitle>Hello and welcome! My name is Trevor Martz.</StyledTitle>
+            <StyledIntro>
+                <PrimaryText>
+                    I am a senior software engineer, primarily for front end/ui work. I graduated from Neumont
+                    University with a degree in Computer Science in 2016, and I've been doing development professionally
+                    since. I am an American living in New Zealand, and am open to local NZ work or remote work anywhere.
+                </PrimaryText>
+            </StyledIntro>
             <StyledResume>
-                <StyledResumeText>Here is a download of my resume</StyledResumeText>
-                <ButtonLink label="Download Pdf" href={TrevorResume} target="_blank" rel="noreferrer" />
+                <StyledResumeText>Here is a copy of my resume</StyledResumeText>
+                <ButtonLink label="View Pdf" href={TrevorResume} target="_blank" rel="noreferrer" />
             </StyledResume>
             <StyledArrow>
                 <H4>That is me</H4> <StyledArrowIcon icon={faArrowRight} />
@@ -30,16 +37,9 @@ export const Homepage = () => {
             <StyledFaceWrapper>
                 <StyledFace src={TrevorFace} alt="this is me" />
             </StyledFaceWrapper>
-            <StyledIntro>
-                <PrimaryText>
-                    I am a senior software engineer, primarily for front end/ui work. I graduated from Neumont
-                    University with a degree in Computer Science in 2016, and I've been doing development professionally
-                    since. I am an American living in New Zealand, and am open to local NZ work or remote US work.
-                </PrimaryText>
-            </StyledIntro>
             <StyledSkills>
                 <SkillsList
-                    title="Core Skills"
+                    title="Skills"
                     skills={[
                         'Front End/UX Development',
                         'Component Design',
@@ -55,7 +55,7 @@ export const Homepage = () => {
             </StyledSkills>
             <StyledTechs>
                 <SkillsList
-                    title="Core Techs"
+                    title="Techs"
                     skills={[
                         'Javascript',
                         'React',
@@ -99,11 +99,34 @@ const StyledHomepage = styled.div`
     display: grid;
     grid-template:
         'title title title'
+        'intro arrow face'
         'resume arrow face'
-        'intro intro intro'
-        'skills techs tools';
-    grid-column-gap: 16px;
+        'skills techs tools'
+        / 1fr 1fr 1fr;
+    grid-column-gap: 32px;
     grid-row-gap: 32px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mediumScreenWidth}) {
+        grid-template:
+            'title title'
+            'arrow face'
+            'intro resume'
+            'skills techs'
+            'tools tools'
+            / 1fr 1fr;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smallScreenWidth}) {
+        grid-template:
+            'title title'
+            'arrow face'
+            'intro intro'
+            'resume resume'
+            'skills skills'
+            'techs techs'
+            'tools tools'
+            / 1fr 1fr;
+    }
 `;
 
 const StyledTitle = styled(H3)`
@@ -118,6 +141,12 @@ const StyledResume = styled.div`
     align-items: center;
 `;
 
+const StyledIntro = styled.div`
+    grid-area: intro;
+    display: flex;
+    align-items: center;
+`;
+
 const StyledResumeText = styled(PrimaryText)`
     text-align: center;
     margin-bottom: 16px;
@@ -127,13 +156,18 @@ const StyledResumeText = styled(PrimaryText)`
 const StyledArrow = styled.div`
     grid-area: arrow;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 `;
 
 const StyledArrowIcon = styled(FontAwesomeIcon)`
     width: 100px;
     height: 100px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smallScreenWidth}) {
+        width: 50px;
+        height: 50px;
+    }
 `;
 
 const StyledFaceWrapper = styled.div`
@@ -146,20 +180,43 @@ const StyledFaceWrapper = styled.div`
         border-radius: 200px;
         box-shadow: inset 0px 0px 75px 25px ${({ theme }) => theme.colors.neutral700};
     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mediumScreenWidth}) {
+        :before {
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
+            box-shadow: inset 0px 0px 75px 25px ${({ theme }) => theme.colors.neutral700};
+        }
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smallScreenWidth}) {
+        :before {
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+            box-shadow: inset 0px 0px 30px 10px ${({ theme }) => theme.colors.neutral700};
+        }
+    }
 `;
 
 const StyledFace = styled.img`
     height: 400px;
     width: 400px;
     border-radius: 200px;
-    ::after {
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mediumScreenWidth}) {
+        height: 300px;
+        width: 300px;
+        border-radius: 150px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.smallScreenWidth}) {
+        height: 150px;
+        width: 150px;
+        border-radius: 75px;
     }
 `;
-
-const StyledIntro = styled(PrimaryText)`
-    grid-area: intro;
-`;
-
 const StyledSkills = styled.div`
     grid-area: skills;
 `;

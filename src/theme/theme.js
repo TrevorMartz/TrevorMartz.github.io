@@ -1,12 +1,16 @@
 const widths = {
     mobileWidthNum: 480,
     tabletWidthNum: 768,
-    maxWidthNum: 1440,
+    smallScreenWidthNum: 900,
+    mediumScreenWidthNum: 1200,
+    maxWidthNum: 1920,
 };
 
 const breakpoints = {
     mobileWidth: `${widths.mobileWidthNum}px`,
     tabletWidth: `${widths.tabletWidthNum}px`,
+    smallScreenWidth: `${widths.smallScreenWidthNum}px`,
+    mediumScreenWidth: `${widths.mediumScreenWidthNum}px`,
     maxWidth: `${widths.maxWidthNum}px`,
 };
 

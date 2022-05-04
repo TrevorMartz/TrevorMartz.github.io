@@ -8,7 +8,7 @@ export const NavLink = ({ to, title }) => {
     const { colors } = useTheme();
     const [isHovered, setIsHovered] = useState(false);
     const hoverStyle = useSpring({
-        'border-bottom': `${isHovered ? '8px solid ' + colors.neutral800 : '2px solid ' + colors.neutral400}`,
+        'border-bottom': `${isHovered ? '8px solid ' + colors.primary800 : '2px solid ' + colors.neutral400}`,
         config: config.stiff,
     });
     const trigger = useCallback(() => {

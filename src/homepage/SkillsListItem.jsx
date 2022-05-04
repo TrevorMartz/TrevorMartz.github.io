@@ -8,7 +8,7 @@ export const SkillsListItem = ({ children }) => {
     const [isHovered, setIsHovered] = useState(false);
     const hoverStyle = useSpring({
         transform: isHovered ? 'scale(1.1)' : 'scale(1)',
-        'border-bottom': `1px solid ${isHovered ? colors.complementary800 : colors.complementary400}`,
+        'border-bottom': `1px solid ${isHovered ? colors.primary400 : colors.complementary400}`,
         config: {
             tension: 300,
             friction: 15,
@@ -31,6 +31,7 @@ export const SkillsListItem = ({ children }) => {
 const StyledListItem = styled(animated.div)`
     text-align: center;
     cursor: pointer;
-    padding: 0 4px 4px 4px;
-    margin: 0 32px 12px;
+    padding: 0 4px 4px;
+    // margin: 0 64px 12px;
+    margin-bottom: 16px;
 `;

@@ -7,13 +7,13 @@ export const Navigation = () => {
         <StyledNavigation>
             <StyledLinks>
                 <NavLink to="/" title="Home" />
-                <NavLink to="/components" title="Components" />
+                {/* <NavLink to="/components" title="Components" /> */}
                 <NavLink to="/pokequiz" title="Poke Quiz" />
-                <NavLink to="/poketypequiz" title="Poke Type Quiz" />
-                <NavLink to="/names" title="Name reader" />
+                {/* <NavLink to="/poketypequiz" title="Poke Type Quiz" /> */}
+                <NavLink to="/names" title="Names" />
                 <StyledGithbLink>
                     <a href="https://github.com/TrevorMartz/TrevorMartz.github.io" target="_blank">
-                        <StyledGithubIcon src="/github.ico" />
+                        <StyledGithubIcon src="/images/github.ico" />
                     </a>
                 </StyledGithbLink>
             </StyledLinks>
@@ -25,7 +25,10 @@ const StyledNavigation = styled.div`
     background-color: ${({ theme }) => theme.colors.neutral100};
     padding: 8px 32px 32px;
     height: 30px;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.neutral300};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.primary200};
+    @media (max-width: ${({ theme }) => theme.breakpoints.tabletWidth}) {
+        padding: 8px 16px 32px;
+    }
 `;
 
 const StyledLinks = styled.div`
